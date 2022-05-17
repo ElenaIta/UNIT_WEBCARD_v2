@@ -29,4 +29,4 @@ jobs:
     - name: install
       run: java -jar ./artifacts/app-order.jar &
     - name: Build with Gradle
-      run: --info
+      run: info
