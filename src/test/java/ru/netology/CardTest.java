@@ -16,7 +16,6 @@ public class CardTest {
 
     @Test
     public void shouldReturnValidValue() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("Устинова Агнесса");
         $("[data-test-id=phone] input").setValue("+79035559988");
         $("[data-test-id=agreement]").click();
@@ -27,7 +26,6 @@ public class CardTest {
 
     @Test
     public void shouldReturnValidValue2() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("Кара-Устинова Агнесса");
         $("[data-test-id=phone] input").setValue("+79035559988");
         $("[data-test-id=agreement]").click();
@@ -38,7 +36,6 @@ public class CardTest {
 
     @Test
     public void emptyNameField() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("");
         $("[data-test-id=phone] input").setValue("+79035559988");
         $("[data-test-id=agreement]").click();
@@ -48,7 +45,6 @@ public class CardTest {
 
     @Test
     public void nameFieldValidation() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("Ivanov Ivan");
         $("[data-test-id=phone] input").setValue("+79035559988");
         $("[data-test-id=agreement]").click();
@@ -59,7 +55,6 @@ public class CardTest {
 
     @Test
     public void emptyPhoneField() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("Кара-Устинова Агнесса");
         $("[data-test-id=phone] input").setValue("");
         $("[data-test-id=agreement]").click();
@@ -69,7 +64,6 @@ public class CardTest {
 
     @Test
     public void phoneFieldValidation() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("Кара-Устинова Агнесса");
         $("[data-test-id=phone] input").setValue("+7903-555-99-88");
         $("[data-test-id=agreement]").click();
@@ -79,11 +73,18 @@ public class CardTest {
 
     @Test
     public void emptyForm() {
-        $(".form-field_theme_alfa_on_white");
         $("[data-test-id=name] input").setValue("");
         $("[data-test-id=phone] input").setValue("");
         $("[data-test-id=agreement]").click();
         $("[type=button]").click();
         $(".input_type_text .input__sub").shouldHave(Condition.exactText("Поле обязательно для заполнения"));
+    }
+
+    @Test
+    public void checkBox() {
+        $("[data-test-id=name] input").setValue("Устинова Агнесса");
+        $("[data-test-id=phone] input").setValue("+79035559988");
+        $("[type=button]").click();
+        $(".input_invalid .checkbox__text").shouldHave(Condition.exactText("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй"));
     }
 }
